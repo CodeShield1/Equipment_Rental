@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+@media (max-width: 750px) {
+    .m-sm-0 {
+        margin: 0 !important;
+    }
+    .cont {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+}
+
+.swiper-container {
+    width: 50%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px !important;
+}
+
+.swiper-slide-active {
+    width: 70% !important;
+}
+
+.swiper-slide img {
+    display: block;
+    height: 420px;
+    width: 90%;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 40px 0;
+}
+
+.swiper-slide-active img {
+    height: 500px;
+    margin: 0;
+}
+
+.swiper {
+    width: 100%;
+    height: 300px;
+    margin: 20px auto;
+}
+
+.ibm {
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.leading-20 {
+    line-height: 4rem !important;
+}
+
+.line-6 {
+    line-height: 2rem !important;
+}
