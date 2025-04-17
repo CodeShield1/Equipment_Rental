@@ -21,6 +21,7 @@
         <table class="min-w-full bg-white shadow rounded-lg overflow-hidden">
             <thead class="bg-gray-100 text-gray-700 text-sm uppercase tracking-wide">
                 <tr>
+                    <th class="px-6 py-3 text-left">Image</th>
                     <th class="px-6 py-3 text-left">Name</th>
                     <th class="px-6 py-3 text-right">Actions</th>
                 </tr>
@@ -28,6 +29,9 @@
             <tbody class="text-gray-800 text-sm divide-y divide-gray-100">
                 @forelse($categories as $category)
                     <tr class="hover:bg-orange-50 transition">
+                        <td class="px-6 py-3">
+                            <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class="w-16 h-16 object-cover rounded">
+                        </td>
                         <td class="px-6 py-3">{{ $category->name }}</td>
                         <td class="px-6 py-3 text-right space-x-3">
                             <a href="{{ route('admin.categories.edit', $category) }}"

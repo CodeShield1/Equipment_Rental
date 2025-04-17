@@ -12,7 +12,13 @@ class Product extends Model
         'description',
         'price_per_day',
         'image',
-        'available',
+        'weight', // New field
+        'fuel_type', // New field
+        'brand', // New field
+        'dimensions', // New field
+        'quantity_available',
+        'city',
+        'featured'
     ];
 
     public function category()

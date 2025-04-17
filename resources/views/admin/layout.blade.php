@@ -18,9 +18,7 @@
 <div x-data="{ open: window.innerWidth >= 1024 ? true : false }" class="flex min-h-screen">
 
     <!-- Sidebar -->
-    <aside :class="{ 'w-64': open, 'w-16': !open }"
-           class="bg-black text-white transition-all duration-300 ease-in-out flex flex-col justify-between overflow-hidden shadow-lg">
-
+    <aside :class="{ 'w-64': open, 'w-16': !open }" class="bg-black text-white transition-all duration-300 ease-in-out flex flex-col justify-between overflow-hidden shadow-lg fixed top-0 left-0 h-full z-20">
         <div>
             <!-- Logo + Toggle -->
             <div class="flex items-center justify-between p-4 border-b border-gray-800">
@@ -96,7 +94,7 @@
     </aside>
 
     <!-- Main Content -->
-    <div class="flex-1 p-6 bg-white overflow-y-auto">
+    <div class="flex-1 p-6 bg-white overflow-y-auto" :class="{ 'ml-64': open, 'ml-16': !open }">
         @yield('content')
     </div>
 

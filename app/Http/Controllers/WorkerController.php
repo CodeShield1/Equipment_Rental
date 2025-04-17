@@ -30,13 +30,15 @@ class WorkerController extends Controller
             'status' => 'required|in:available,unavailable',
             'image' => 'nullable|image',
             'equipment' => 'nullable|array',
+            'city' => 'nullable|string', // New validation
+            'price_per_day' => 'nullable|numeric',
         ]);
 
-        $worker = Worker::create($request->only(['name', 'email', 'status']));
+        $worker = Worker::create($request->only(['name', 'email', 'status', 'city', 'price_per_day']));
 
         // Handle Image Upload
         if ($request->hasFile('image')) {
-            $worker->image = $request->file('image')->store('workers');
+            $worker->image = $request->file('image')->store('workers', 'public');
             $worker->save();
         }
 
@@ -62,13 +64,15 @@ class WorkerController extends Controller
             'status' => 'required|in:available,unavailable',
             'image' => 'nullable|image',
             'equipment' => 'nullable|array',
+            'city' => 'nullable|string', 
+            'price_per_day' => 'nullable|numeric',
         ]);
 
-        $worker->update($request->only(['name', 'email', 'status']));
+        $worker->update($request->only(['name', 'email', 'status', 'city' , 'price_per_day']));
 
         // Handle Image Upload
         if ($request->hasFile('image')) {
-            $worker->image = $request->file('image')->store('workers');
+            $worker->image = $request->file('image')->store('workers', 'public');
             $worker->save();
         }
 

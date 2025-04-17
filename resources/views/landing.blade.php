@@ -34,7 +34,7 @@
         @foreach($categories as $category)
             <a href="{{ route('shop.index', $category->id) }}" class="bg-white p-4 shadow rounded flex items-center justify-between">
                 <div class="w-[20%]">
-                    <img class="w-full" src="{{ asset($category->img) }}" alt="{{ $category->name }}">
+                    <img class="w-full" src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}">
                 </div>
                 <div class="w-[75%]">
                     <h3 class="font-semibold text-lg mb-1">{{ $category->name }}</h3>
@@ -53,7 +53,7 @@
             @foreach($mostRented as $product)
                 <a href="{{ route('shop.show', $product->id) }}" class="bg-white p-4 rounded shadow hover:shadow-md transition block">
                     @if($product->image)
-                        <img src="{{ asset('storage/' . $product->image) }}" class="w-full h-40 object-cover mb-2 rounded">
+                        <img src="{{ asset('storage/' . $product->image) }}" class="w-full h-40 object-contain mb-2 rounded">
                     @endif
                     <h3 class="font-semibold text-black">{{ $product->name }}</h3>
                     <p class="text-sm text-gray-600">{{ $product->price_per_day }} DH/day</p>
@@ -86,17 +86,21 @@
 {{-- Featured Products --}}
 <section class="max-w-[90rem] mx-auto px-4 py-12" data-aos="fade-up">
     <h2 class="text-2xl font-bold mb-6 text-black ibm">Featured Equipment</h2>
+    @if($featured->count())
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         @foreach($featured as $product)
             <a href="{{ route('shop.show', $product->id) }}" class="bg-white p-4 rounded shadow hover:shadow-md transition block">
                 @if($product->image)
-                    <img src="{{ asset('storage/' . $product->image) }}" class="w-full h-40 object-cover mb-2 rounded">
+                    <img src="{{ asset('storage/' . $product->image) }}" class="w-full h-40 object-contain mb-2 rounded">
                 @endif
                 <h3 class="font-semibold text-black">{{ $product->name }}</h3>
                 <p class="text-sm text-gray-600">{{ $product->price_per_day }} DH/day</p>
             </a>
         @endforeach
     </div>
+    @else
+        <p>No featured products available at the moment.</p>
+    @endif
 </section>
 
 {{-- Testimonials --}}
@@ -181,7 +185,8 @@
 
 {{-- CTA Section --}}
 <section class="bg-black py-12">
-    <div class="max-w-[90rem] mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="max-w-[90rem] mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 items-baseline
+">
         <div>
             <a href="/" class="text-white duration-300 hover:text-orange-500 text-2xl font-bold mb-5">Equipment Rental</a>
             <p class="text-gray-400 mt-5 leading-6">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>

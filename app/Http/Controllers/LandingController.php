@@ -13,7 +13,7 @@ class LandingController extends Controller
     public function index()
     {
         $categories = Category::withCount('products')->get();
-        $featured = Product::inRandomOrder()->take(4)->get();
+        $featured = Product::where('featured', true)->take(4)->get();
         $mostRented = Product::withCount('rentals')->orderBy('rentals_count', 'desc')->take(4)->get();
         $latestProducts = Product::latest()->take(4)->get();
 

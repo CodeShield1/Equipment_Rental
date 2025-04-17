@@ -29,15 +29,19 @@ class ProductController extends Controller
             'category_id' => 'required|exists:categories,id',
             'description' => 'nullable',
             'price_per_day' => 'required|numeric',
+            'weight' => 'nullable|numeric', // New validation rule
+            'fuel_type' => 'nullable|string', // New validation rule
+            'brand' => 'nullable|string', // New validation rule
+            'dimensions' => 'nullable|string', // New validation rule
             'image' => 'nullable|image|max:10240',
-            'available' => 'boolean',
+            'quantity_available' => 'required|integer|min:0', // New validation
+            'city' => 'nullable|string', // New validation
         ]);
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('products', 'public');
         }
-        $validated['available'] = $request->has('available');
-
+        $validated['featured'] = $request->has('featured');
 
         Product::create($validated);
         return redirect()->route('admin.products.index')->with('success', 'Product created.');
@@ -51,14 +55,21 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
+
         $validated = $request->validate([
             'name' => 'required',
             'category_id' => 'required|exists:categories,id',
             'description' => 'nullable',
             'price_per_day' => 'required|numeric',
+            'weight' => 'nullable|numeric', // New validation rule
+            'fuel_type' => 'nullable|string', // New validation rule
+            'brand' => 'nullable|string', // New validation rule
+            'dimensions' => 'nullable|string', // New validation rule
             'image' => 'nullable|image|max:10240',
-            'available' => 'boolean',
+            'quantity_available' => 'required|integer|min:0', // New validation
+            'city' => 'nullable|string', // New validation
         ]);
+
 
         if ($request->hasFile('image')) {
             // Delete old image
@@ -67,7 +78,7 @@ class ProductController extends Controller
             }
             $validated['image'] = $request->file('image')->store('products', 'public');
         }
-        $validated['available'] = $request->has('available');
+        $validated['featured'] = $request->has('featured');
 
         $product->update($validated);
         return redirect()->route('admin.products.index')->with('success', 'Product updated.');

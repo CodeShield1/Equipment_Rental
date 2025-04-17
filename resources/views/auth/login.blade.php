@@ -31,6 +31,7 @@
                 <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
             </label>
         </div>
+        
 
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
@@ -43,5 +44,11 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+        <div class="mt-4 text-center">
+            <p class="text-sm text-gray-600">
+                Don't have an account? <a href="{{ route('register') }}" class="text-blue-500 hover:text-blue-700">Register here</a>.
+            </p>
+        </div>
+
     </form>
 </x-guest-layout>

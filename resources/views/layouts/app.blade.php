@@ -50,6 +50,8 @@
               spaceBetween: 30,
               grabCursor: true,
             });
-        </script>        
-    </body>
+
+        </script>     
+    <script src="{{ asset('js/custom.js') }}"></script>
+</body>
 </html>

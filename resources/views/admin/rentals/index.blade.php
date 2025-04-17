@@ -31,7 +31,7 @@
         <table class="min-w-full">
             <thead>
                 <tr class="bg-gray-100 border-b text-gray-700 text-sm uppercase tracking-wide">
-                    <th class="p-3 text-left">User</th>
+                    <th class="p-3 text-left">User Email</th>
                     <th class="p-3 text-left">Product</th>
                     <th class="p-3 text-left">Dates</th>
                     <th class="p-3 text-left">Location</th>
@@ -42,7 +42,7 @@
             <tbody class="text-sm text-gray-800">
                 @forelse($rentals as $rental)
                     <tr class="border-b hover:bg-orange-50">
-                        <td class="p-3">{{ $rental->user->name }}</td>
+                        <td class="p-3">{{ $rental->user->email }}</td>
                         <td class="p-3">{{ $rental->product->name }}</td>
                         <td class="p-3">{{ $rental->start_date }} → {{ $rental->end_date }}</td>
                         <td class="p-3">{{ $rental->location }}</td>

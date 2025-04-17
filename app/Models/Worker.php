@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 // Worker Model
 class Worker extends Model
 {
-    protected $fillable = ['name', 'phone', 'email', 'image', 'status'];
+    protected $fillable = ['name', 'phone', 'email', 'image', 'status' , 'city', 'price_per_day'];
 
     // Worker can work with many products
     public function products()

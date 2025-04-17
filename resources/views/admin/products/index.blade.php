@@ -45,7 +45,7 @@
                         <td class="px-6 py-3">{{ $product->category->name }}</td>
                         <td class="px-6 py-3">{{ $product->price_per_day }} DH</td>
                         <td class="px-6 py-3">
-                            @if($product->available)
+                            @if($product->quantity_available > 0)
                                 <span class="inline-flex items-center gap-1 text-green-600">
                                     <i class="fas fa-check-circle"></i> Yes
                                 </span>

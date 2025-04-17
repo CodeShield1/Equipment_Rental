@@ -21,6 +21,12 @@
                 <input type="email" name="email" id="email" class="w-full border-gray-300 rounded-md px-4 py-2" required>
             </div>
 
+            <div class="mb-4">
+                <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                <input type="text" name="city" id="city" class="w-full border-gray-300 rounded-md px-4 py-2" required>
+            </div>
+
+
             <!-- Worker Status -->
             <div class="mb-4">
                 <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
@@ -29,6 +35,14 @@
                     <option value="unavailable">Unavailable</option>
                 </select>
             </div>
+
+            <div class="mb-6">
+                <label for="price_per_day" class="block text-sm font-medium text-gray-700 mb-1">Price per Day (DH)</label>
+                <input type="number" name="price_per_day" id="price_per_day" 
+                       class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400"
+                      >
+            </div>
+            
 
             <!-- Image Upload -->
             <div class="mb-4">
