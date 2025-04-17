@@ -45,9 +45,11 @@ class RentalController extends Controller
         $product->save();
 
         // Set the worker's availability to false
-        $worker = Worker::find($request->worker_id);
-        $worker->status = 'unavailable';
-        $worker->save();
+        if($request->worker_id) {
+            $worker = Worker::find($request->worker_id);
+            $worker->status = 'unavailable';
+            $worker->save();
+        }
 
         return redirect()->route('rentals.index')->with('success', 'Rental request submitted. We will contact you soon.');
     }
