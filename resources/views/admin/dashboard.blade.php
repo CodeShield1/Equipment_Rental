@@ -43,12 +43,12 @@
     </div>
 
     <!-- Charts Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="col-span-2">
             <h2 class="text-lg font-semibold mb-2">Rentals per Month</h2>
             <canvas id="rentalsChart" height="200"></canvas>
         </div>
-        <div>
+        <div class="col-span-1">
             <h2 class="text-lg font-semibold mb-2">Rentals by Status</h2>
             <canvas id="statusChart" height="200"></canvas>
         </div>
