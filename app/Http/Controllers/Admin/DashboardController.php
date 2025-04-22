@@ -24,10 +24,10 @@ class DashboardController extends Controller
         ->orderBy('month')
         ->pluck('count', 'month');
     
-    $monthLabels = [];
-    foreach ($monthlyData->keys() as $monthNum) {
-        $monthLabels[] = date('F', mktime(0, 0, 0, $monthNum, 10));
-    }
+        $monthLabels = [];
+        foreach ($monthlyData->keys() as $monthNum) {
+            $monthLabels[] = date('F', mktime(0, 0, 0, $monthNum, 10));
+        }
         
         $statusCounts = Rental::selectRaw('status, COUNT(*) as count')
             ->groupBy('status')

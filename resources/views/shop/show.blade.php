@@ -44,7 +44,7 @@
                 <h3 class="text-xl font-semibold mb-4">Workers Available for This Equipment</h3>
                 <p class="text-gray-600 mb-4">City: {{ $product->city }}</p>
                 <p class="text-gray-600 mb-4">Total Available Workers: 
-                    {{ $product->workers->where('city', $product->city)->count() }}
+                    {{ $product->workers->where('city', $product->city)->where('status' , 'available')->count() }}
                 </p>
             </div>
                         <!-- Pricing and Rent Button -->

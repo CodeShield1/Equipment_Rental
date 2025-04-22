@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::table('rentals', function (Blueprint $table) {
             $table->unsignedBigInteger('worker_id'); // Add the user_id column
-            $table->foreign('worker_id')->references('id')->on('users')->onDelete('cascade'); // Add foreign key constraint
+            $table->foreign('worker_id')->references('id')->on('workers')->onDelete('cascade'); // Add foreign key constraint
         });
     }
     
